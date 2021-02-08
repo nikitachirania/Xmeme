@@ -1,0 +1,44 @@
+<%- include("partials/header") %>
+    <body>
+        <div class="ui main text container segment">
+            <div class="ui huge header">Create Meme</div>
+            <form class="ui form" action="/show" method="post">
+                <div class="field">
+                    <label>Name of the meme creator</label>
+                    <input type="text" placeholder="Enter your full name" name="owner">
+                </div>
+                <div class="field">
+                    <label>Caption for the meme</label>
+                       <input type="text" placeholder="Be creative with the caption" name="caption">
+                </div>
+                <div class="field">
+                    <label>URL of the meme image</label>
+                       <input type="url" placeholder="Enter URL of your meme here" name="url">
+                </div>   
+                <button class="ui purple button">Submit Meme</button>
+            </form>
+        </div>
+
+        
+        <div class="ui main text container">
+        <div class="ui huge header">Meme Stream</div>
+        <div class="ui top attached segment">
+        
+        <div class="ui divided items">
+            <% memes.forEach(function(meme){ %>
+            <div class="item">
+                    <div class="ui tertiary segment" >
+                        <h3 class="ui header"><%= meme.name%></h3>
+                        <p><%= meme.caption%></p>
+                        <img  class="ui centered medium image" class="ui medium rounded image" src="<%= meme.url %> ">
+                        <div class="btn">
+                        <a href='/show/<%= meme._id%>/edit'  class="ui purple button" >Edit</a>
+                       </div>
+                    </div>
+            </div>
+                
+            <% }); %>
+        </div>
+    </div>
+    </div>
+    <%- include("partials/footer") %>

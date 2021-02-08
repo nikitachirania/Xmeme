@@ -1,0 +1,26 @@
+.container.main {
+  margin-top: 7.0em;
+}
+.segment.container.main {
+  margin-top: 7.0em;
+}
+.segment.tertiary {
+  width:30em;  
+  display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+h3,p{
+  text-align: center;
+}
+.btn{
+  margin-top:1em;
+  text-align: center;
+  size: 50em;
+}
+.button{
+  width:10em;
+}
+.twobtn{
+  display:flex;
+}

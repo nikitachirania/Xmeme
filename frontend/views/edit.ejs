@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+<div class="ui main text container segment">
+    <div class="ui huge header">Edit Post</div>
+    <form class="ui form" action="/show/<%=meme._id%>/edit?_method=PATCH" method="POST">
+        <div class="field">
+            <label><%= meme.name %></label>
+        </div>
+        <div class="field">
+            <label>Caption for the meme</label>
+               <input type="text" value="<%= meme.caption %>" name="caption">
+        </div>
+        <div class="field">
+            <label>URL of the meme image</label>
+               <input type="url" value="<%= meme.url %>" name="url">
+        </div>
+    <div class="twobtn"> 
+        <button class="ui purple button" class="ui left attached button">Update Post</button>
+        </form>
+        <form method="get" action="/">
+                <button class="right attached ui button" class="ui grey button">Cancel</button>
+        </form>
+    </div>
+       
+</div>
+<%- include("partials/footer") %>
