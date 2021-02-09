@@ -15,7 +15,7 @@ mongoose.connection.on('error', err => {
 
 app.set('views', path.join(__dirname, '../frontend/views'))
 app.set("view engine","ejs");
-app.use(express.static('../frontend/public'));
+app.use(express.static('frontend/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 const memesRouter = require('./routes/memes')
