@@ -12,7 +12,7 @@ app.use(methodOverride('_method'))
     app.get("/memes", async(req, res) =>{
         try{
                 const memes = await meme.find().sort({ _id: -1 }).limit(100);
-                res.json(memes);
+                res.status(200).send(memes);
             }
         catch(err){
             res.send('Error ' + err)
@@ -23,7 +23,7 @@ app.use(methodOverride('_method'))
     app.get('/memes/:id', async(req,res) => {
         try{
                const memes = await meme.findById(req.params.id);
-                res.json(memes);
+                res.status(200).send(memes);
         }catch(err){
             res.status(404).send(err);
         }
@@ -31,14 +31,13 @@ app.use(methodOverride('_method'))
 
      app.post("/memes",async(req,res) =>{
      try{
-        console.log(req.body);
         const Meme = new meme({
          name: req.body.name,
          url: req.body.url,
          caption: req.body.caption
         })
         const memes= await Meme.save();
-         res.json(memes._id);
+         res.status(200).send({id: memes._id});
      }
      catch(err){
          res.send('Error ' + err)

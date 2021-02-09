@@ -4,10 +4,11 @@ const bodyParser = require("body-parser");
 const path = require('path');
 const mongoose = require("mongoose");
 const port = process.env.PORT || 8081;
+const uri = process.env.MONGODB_URI;
 
 //mongoose connecting to mongodb and creating db meme_app
 require('mongoose-type-url');
-mongoose.connect("mongodb://localhost:27017/meme_app" , { useNewUrlParser: true , useUnifiedTopology: true });
+mongoose.connect(uri || "mongodb://localhost:27017/meme_app" , { useNewUrlParser: true , useUnifiedTopology: true });
 mongoose.connection.on('error', err => {
     logError(err);
 });
