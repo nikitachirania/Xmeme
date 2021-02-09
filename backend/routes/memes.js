@@ -4,6 +4,7 @@ const methodOverride = require('method-override')
 const meme = require('../models/memes')
 
 app.use(methodOverride('_method'))
+app.use(express.static('../frontend/public'));
 
 //................router...........................
 
