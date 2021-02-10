@@ -15,7 +15,7 @@ app.use(methodOverride('_method'))
                 res.status(200).send(memes);
             }
         catch(err){
-            res.send('Error ' + err)
+            res.status(400).send('Error : ' + err)
         }
      });
      
@@ -25,7 +25,7 @@ app.use(methodOverride('_method'))
                const memes = await meme.findById(req.params.id);
                 res.status(200).send(memes);
         }catch(err){
-            res.status(404).send(err);
+            res.status(404).send('Error :' + err);
         }
      })
 
@@ -37,11 +37,11 @@ app.use(methodOverride('_method'))
          caption: req.body.caption
         })
         const memes= await Meme.save();
-         res.status(200).send({id: memes._id});
-     }
-     catch(err){
-         res.send('Error ' + err)
-     }
+         res.status(201).send({id: memes.id});
+        }
+        catch(err){
+         res.status(400).send('Error ' + err)
+        }
   })
   app.patch('/memes/:id/edit',async(req,res)=> {
     try{
@@ -49,9 +49,9 @@ app.use(methodOverride('_method'))
        memes.caption = req.body.caption;
        memes.url=req.body.url;
        await memes.save()
-        res.status(200).send(200);
+        res.status(201).send(201);
      }catch(err){
-        res.status(404).send(404);
+        res.status(404).send('Error : ' + err);
      }
  })
 
@@ -60,21 +60,21 @@ app.use(methodOverride('_method'))
 
     app.get("/" , async(req,res)=>{
     try{
-        res.redirect("/show");
-    }
+        res.status(200).redirect("/show");
+      }
     catch(err){
-       res.send('Error ' + err);
-    }
+       res.status(400).send('Error ' + err);
+      }
    })
 
 //get route
 app.get("/show", async(req, res) =>{
    try{
            const memes = await meme.find().sort({ _id: -1 }).limit(100);
-           res.render("memes", {memes:memes});
+           res.status(200).render("memes", {memes:memes});
        }
    catch(err){
-       res.send('Error ' + err)
+       res.status(400).send('Error ' + err)
    }
 });
 
@@ -87,10 +87,10 @@ app.post("/show",async(req,res) =>{
    })
    try{
        await Meme.save();
-       res.redirect("/show");
+       res.status(201).redirect("/show");
    }
    catch(err){
-       res.send('Error ' + err)
+       res.status(400).send('Error ' + err)
    }
 })
 
@@ -99,11 +99,11 @@ app.get("/show/:id/edit", async (req, res)=> {
         
         try{
            const editmeme = await meme.findById(req.params.id) 
-            res.render("edit", {meme: editmeme});  
+            res.status(201).render("edit", {meme: editmeme});  
         }
         catch(err){
             console.log(err);
-            res.redirect("/")
+            res.status(404).send("Error : " +err)
         }
  });
 
@@ -114,13 +114,13 @@ app.patch('/show/:id/edit',async(req,res)=> {
       memes.caption = req.body.caption;
       memes.url=req.body.url;
       await memes.save()
-       res.redirect("/")
+       res.status(201).redirect("/")
     }catch(err){
-       res.status(404).send('Error')
+       res.status(404).send('Error :' + err )
     }
 })
 app.get("*",(req,res)=>{
-   res.status(404).send('404');
+   res.status(404).send('Page not found');
 })
 
 module.exports = app;

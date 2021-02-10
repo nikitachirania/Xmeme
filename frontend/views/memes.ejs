@@ -5,15 +5,15 @@
             <form class="ui form" action="/show" method="post">
                 <div class="field">
                     <label>Name of the meme creator</label>
-                    <input type="text" placeholder="Enter your full name" name="owner">
+                    <input type="text" placeholder="Enter your full name" name="owner" required>
                 </div>
                 <div class="field">
                     <label>Caption for the meme</label>
-                       <input type="text" placeholder="Be creative with the caption" name="caption">
+                       <input type="text" placeholder="Be creative with the caption" name="caption" required>
                 </div>
                 <div class="field">
                     <label>URL of the meme image</label>
-                       <input type="url" placeholder="Enter URL of your meme here" name="url">
+                       <input type="url" placeholder="Enter URL of your meme here" name="url" required>
                 </div>   
                 <button class="ui purple button">Submit Meme</button>
             </form>
