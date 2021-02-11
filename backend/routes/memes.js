@@ -80,6 +80,7 @@ app.get("/show", async(req, res) =>{
 
 //post route
 app.post("/show",async(req,res) =>{
+    console.log(req.body);
       const Meme = new meme({
        name: req.body.owner,
        caption: req.body.caption,
@@ -90,7 +91,7 @@ app.post("/show",async(req,res) =>{
        res.status(201).redirect("/show");
    }
    catch(err){
-       res.status(400).send('Error ' + err)
+       res.status(404).send('Error ' + err)
    }
 })
 
