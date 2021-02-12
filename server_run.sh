@@ -2,5 +2,5 @@
 
 
 # Setup DB or any other environment variables you want to setup.
-npm install
-npm run start
+/home/ubuntu/.nvm/versions/node/v15.8.0/bin/npm install
+/home/ubuntu/.nvm/versions/node/v15.8.0/bin/node backend/app.js
