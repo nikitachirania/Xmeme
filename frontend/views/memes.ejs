@@ -5,7 +5,7 @@
             <form class="ui form" action="/show" method="post">
                 <div class="field">
                     <label>Name of the meme creator</label>
-                    <input type="text" placeholder="Enter your full name" name="owner" required>
+                    <input type="text" placeholder="Enter your full name" name="name" required>
                 </div>
                 <div class="field">
                     <label>Caption for the meme</label>
@@ -33,6 +33,7 @@
                         <img  class="ui centered medium image" class="ui medium rounded image" src="<%= meme.url %> ">
                         <div class="btn">
                         <a href='/show/<%= meme._id%>/edit'  class="ui purple button" >Edit</a>
+                        <a href='/show/<%= meme._id%>/read'  class="ui purple button" >Show</a>
                        </div>
                     </div>
             </div>

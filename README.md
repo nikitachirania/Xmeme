@@ -1,22 +1,14 @@
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-<!-- PROJECT LOGO -->
-<br />
 <p align="center">
 
   <h3 align="center">Xmeme</h3>
 
   <p align="center">
-    A place where you can share and edit memes.
-    <br />
-    <a href="https://github.com/Adrenalinerush07/Xmeme/blob/main/README.md"><strong>Explore the docs »</strong></a>
+     Anyone can post and edit posted memes.
     <br />
     <br />
-    <a href="https://kartik-xmeme-app.herokuapp.com/">View Demo</a>
+    <a href="https://nc-xmeme.herokuapp.com/">Deployed Xmeme on heroku</a>
     .
-    <a href="mailto:kartikmnc@gmail.com">Report Bug</a>
-    ·
-    <a href="mailto:kartikmnc@gmail.com">Request Feature</a>
+    <a href="mailto:nikitachirania15@gmail.com">Any feedback would be greatly appreciated.</a>
   </p>
 </p>
 
@@ -37,9 +29,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
-
   </ol>
 </details>
 
@@ -47,17 +36,18 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://kartik-xmeme-app.herokuapp.com/)
+Anyone can post and edit memes with a caption which includes Rest API methods get, post and patch using nodejs and Express framework.
+Users can only post unique memes.
 
-Users can post and edit funny memes on the website with is build on node.js and MongoDB for the backend.
-EJS is used for building pages dynamically.
+It is using mongodb database for storing memes and displaying 100 latest memes on EJS pages.
+EJS is used for rendering pages dynamically.
 
-The basic idea for making this project is to build a rest API which includes get, post, patch.
-This project also includes scripts for testing the server so testing is all automated from installation
-to starting the server. Besides, there is also a docker image of the whole software to make testing even easier.
+The project also includes three script files install.sh, sleep.sh and server_run.sh so can be tested anywhere without worrying about installation and server running process.
 
-Error handle is also handled with great care with properly commented code.
-Status code is attached to every response.
+It also includes docker image of the whole software to make testing easier.
+
+It takes care of every type of Error handling and response status code.
+Code has been written with clear comments and good modularity.
 
 ### Built With
 
@@ -74,7 +64,7 @@ Status code is attached to every response.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Adrenalinerush07/Xmeme.git
+   git clone https://github.com/nikitachirania/Xmeme
    ```
 2. Install NPM packages
    ```sh
@@ -82,14 +72,15 @@ Status code is attached to every response.
    ```
 3. Start the server
    ```sh
-   node app.js
+  npm run start
    ```
-4. Visit localhost no post 8081
+4. Visit localhost on port 8081
+
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
-For posting a meme a user need to provide 3 things
+For posting a meme, user need to provide 3 things
 
 1. Name
 2. URL for the meme image
@@ -97,26 +88,4 @@ For posting a meme a user need to provide 3 things
 
 After providing these 3 parameters click on submit button to post your meme.
 
-After this user will be redirected to the page containing all the memes, from there user can visit a meme separately by clicking read more or can edit the meme by clicking the edit button.
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<!-- CONTACT -->
-
-## Contact
-
-Your Name - kartikmnc@gmail.com
-
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/kartik-jaiswal-76623a16b/
-[product-screenshot]: images/screenshot.png
+After this, if you will refresh the page then, the user's posted memes will be  shown on the top of the listed memes and there, they can edit the meme by clicking the edit button.

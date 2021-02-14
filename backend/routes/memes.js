@@ -31,6 +31,11 @@ app.use(methodOverride('_method'))
 
      app.post("/memes",async(req,res) =>{
      try{
+        const ch= await meme.findOne({name : req.body.name,url : req.body.url ,caption : req.body.caption})
+        if(ch!==null){
+            res.status(409).send('Error : Post already present!')
+             return;
+         }
         const Meme = new meme({
          name: req.body.name,
          url: req.body.url,
@@ -40,7 +45,7 @@ app.use(methodOverride('_method'))
          res.status(201).send({id: memes.id});
         }
         catch(err){
-         res.status(400).send('Error ' + err)
+                res.status(400).send('Error : ' + err)
         }
   })
   app.patch('/memes/:id/edit',async(req,res)=> {
@@ -49,14 +54,14 @@ app.use(methodOverride('_method'))
        memes.caption = req.body.caption;
        memes.url=req.body.url;
        await memes.save()
-        res.status(201).send(201);
+        res.status(201).send('201');
      }catch(err){
         res.status(404).send('Error : ' + err);
      }
  })
 
 
-    //.................render page.....................
+    //.................page response.....................
 
     app.get("/" , async(req,res)=>{
     try{
@@ -78,20 +83,32 @@ app.get("/show", async(req, res) =>{
    }
 });
 
+app.get('/show/:id/read', async(req,res) => {
+    try{
+           const memes = await meme.findById(req.params.id);
+            res.status(200).render("read",{memes:memes});
+    }catch(err){
+        res.status(404).send('Error :' + err);
+    }
+ })
+
 //post route
 app.post("/show",async(req,res) =>{
-    console.log(req.body);
+    try{
+     const ch= await meme.findOne({name : req.body.name,url : req.body.url ,caption : req.body.caption})
+     if(ch!==null){
+        res.status(409).send('Error : Post already present!')
+         return;
+     }
       const Meme = new meme({
-       name: req.body.owner,
+       name: req.body.name,
        caption: req.body.caption,
-       url: req.body.url
-   })
-   try{
+       url: req.body.url})
        await Meme.save();
        res.status(201).redirect("/show");
    }
    catch(err){
-       res.status(404).send('Error ' + err)
+       res.status(400).send('Error '+err)
    }
 })
 
