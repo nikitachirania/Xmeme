@@ -72,10 +72,9 @@ Code has been written with clear comments and good modularity.
    ```
 3. Start the server
    ```sh
-  npm run start
+   npm run start
    ```
 4. Visit localhost on port 8081
-
 <!-- USAGE EXAMPLES -->
 
 ## Usage
