@@ -82,10 +82,10 @@ Code has been written with clear comments and good modularity.
 
 For posting a meme, user need to provide 3 things
 
-1. Name
-2. URL for the meme image
-3. Caption
+1. Name of the meme creator
+2. Caption for the meme
+3. URL of the meme image
 
 After providing these 3 parameters click on submit button to post your meme.
 
-After this, if you will refresh the page then, the user's posted memes will be  shown on the top of the listed memes and there, they can edit the meme by clicking the edit button.
+After this, the page will be refreshed and the user's posted memes will be  shown on the top of the listed memes and there, they can edit the meme by clicking the edit button and view the meme by clicking the show button.
